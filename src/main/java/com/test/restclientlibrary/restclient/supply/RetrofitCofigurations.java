@@ -10,17 +10,16 @@ public class RetrofitCofigurations {
 
     public static RetrofitConfiguration notAuthentication(String baseUrl) {
         return (httpClientFactory, converterFactory) -> {
-            OkHttpClient baseClient = httpClientFactory
+            OkHttpClient.Builder baseClient = httpClientFactory
                     .getBaseClient()
                     .newBuilder()
-                    .followRedirects(false)
-                    .build();
+                    .followRedirects(false);
 
             Retrofit.Builder retrofit1 = new Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .addConverterFactory(converterFactory.getFactory(GsonConverterFactory.class))
-                    .client(baseClient);
+                    .client(baseClient.build());
 
             return retrofit1.build();
         };

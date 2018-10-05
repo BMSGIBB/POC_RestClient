@@ -9,6 +9,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Service
 public class ConverterFactory implements IConverterFactory{
+
+    public ConverterFactory() {
+    }
+
     public Converter.Factory getFactory(Class<? extends Converter.Factory> factoryClass) {
         if (factoryClass.isInstance(GsonConverterFactory.class)) {
             return getGsonConverter();

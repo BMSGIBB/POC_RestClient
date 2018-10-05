@@ -22,7 +22,7 @@ public class ServiceTest {
         this.retrofit = retroFitGenerator.generate(configuration);
     }
 
-    Observable<PostDto> getPostWithId(int id){
+    public Observable<PostDto> getPostWithId(int id){
         return retrofit
                 .create(TypicodeRequest.class)
                 .getPost(id);
