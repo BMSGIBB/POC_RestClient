@@ -22,11 +22,7 @@ public class RetrofitGenerator implements IRetrofitGenerator {
     }
 
     @Override
-    public Retrofit generate(RetrofitConfiguration generator) {
-
-        System.out.println(clientFactory);
-        System.out.println(converterFactory);
-
+    public Retrofit generate(IRetrofitConfiguration generator) {
         return generator.apply(clientFactory,converterFactory);
     }
 }
