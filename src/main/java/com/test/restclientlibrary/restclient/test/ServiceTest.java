@@ -15,10 +15,10 @@ import java.sql.PreparedStatement;
 public class ServiceTest {
     private Retrofit retrofit;
 
-    RetrofitConfiguration configuration =
-            RetrofitCofigurations.notAuthentication("https://jsonplaceholder.typicode.com");
+    RetrofitConfiguration configuration;
 
-    public ServiceTest(IRetrofitGenerator retroFitGenerator) {
+    public ServiceTest(IRetrofitGenerator retroFitGenerator, RetrofitCofigurations retrofitCofigurations) {
+        this.configuration = retrofitCofigurations.notAuthentication("https://jsonplaceholder.typicode.com");
         this.retrofit = retroFitGenerator.generate(configuration);
     }
 

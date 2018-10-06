@@ -2,13 +2,18 @@ package com.test.restclientlibrary.restclient.supply;
 
 import com.test.restclientlibrary.restclient.generator.RetrofitConfiguration;
 import okhttp3.OkHttpClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.converter.json.GsonFactoryBean;
+import org.springframework.stereotype.Component;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+@Component
 public class RetrofitCofigurations {
 
-    public static RetrofitConfiguration notAuthentication(String baseUrl) {
+    public RetrofitConfiguration notAuthentication(String baseUrl) {
         return (httpClientFactory, converterFactory) -> {
             OkHttpClient.Builder baseClient = httpClientFactory
                     .getBaseClient()

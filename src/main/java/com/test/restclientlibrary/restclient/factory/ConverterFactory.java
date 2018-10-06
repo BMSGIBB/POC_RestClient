@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import retrofit2.Converter;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
 @Service
 public class ConverterFactory implements IConverterFactory{
 
@@ -14,7 +15,7 @@ public class ConverterFactory implements IConverterFactory{
     }
 
     public Converter.Factory getFactory(Class<? extends Converter.Factory> factoryClass) {
-        if (factoryClass.isInstance(GsonConverterFactory.class)) {
+        if (factoryClass.isAssignableFrom(GsonConverterFactory.class)) {
             return getGsonConverter();
         }
         return null;
@@ -22,7 +23,7 @@ public class ConverterFactory implements IConverterFactory{
 
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
-    private GsonConverterFactory getGsonConverter() {
-        return GsonConverterFactory.create();
+    private Converter.Factory getGsonConverter() {
+        return (Converter.Factory)GsonConverterFactory.create();
     }
 }
