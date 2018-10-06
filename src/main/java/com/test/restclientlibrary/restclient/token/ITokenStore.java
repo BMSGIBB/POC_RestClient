@@ -1,7 +1,6 @@
 package com.test.restclientlibrary.restclient.token;
 
-public interface ITokenStore {
+public interface ITokenStore<T extends IProviderToken> {
     String getToken();
-    void fetchTokenFromProvider(ITokenFetcher<IProviderToken> tokenFetcher);
     boolean isTokenExpired();
 }

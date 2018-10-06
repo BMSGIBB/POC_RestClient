@@ -1,7 +1,8 @@
 package com.test.restclientlibrary.restclient.supply;
 
+import com.test.restclientlibrary.restclient.token.TokenStore;
 import okhttp3.Interceptor;
 
 public interface IRetrofitInterceptorTemplate {
-    Interceptor withBearerToken(String bearerToken);
+    Interceptor withBearerToken(TokenStore tokenStore);
 }
