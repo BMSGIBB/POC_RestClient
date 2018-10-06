@@ -1,11 +1,10 @@
-package com.test.restclientlibrary.restclient.test;
+package com.test.restclientlibrary.restclient.test.jsontypicode;
 
 import com.test.restclientlibrary.restclient.client.RestService;
 import com.test.restclientlibrary.restclient.generator.IRetrofitConfiguration;
 import com.test.restclientlibrary.restclient.generator.IRetrofitGenerator;
 import com.test.restclientlibrary.restclient.supply.IRetrofitConfigurationTemplate;
 import com.test.restclientlibrary.restclient.supply.IRetrofitInterceptorTemplate;
-import okhttp3.Interceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rx.Observable;

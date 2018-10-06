@@ -1,4 +1,4 @@
-package com.test.restclientlibrary.restclient.test;
+package com.test.restclientlibrary.restclient.test.jsontypicode;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

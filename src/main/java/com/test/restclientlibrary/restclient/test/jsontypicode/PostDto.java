@@ -1,4 +1,4 @@
-package com.test.restclientlibrary.restclient.test;
+package com.test.restclientlibrary.restclient.test.jsontypicode;
 
 public class PostDto {
     int userId;

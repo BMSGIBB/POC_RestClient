@@ -2,11 +2,13 @@ package com.test.restclientlibrary.restclient.token;
 
 public abstract class TokenStore implements ITokenStore<IProviderToken> {
     IProviderToken token;
-    ITokenFetcher<IProviderToken> tokenFetcher;
+    public ITokenFetcher<IProviderToken> tokenFetcher;
 
     @Override
     public String getToken() {
-        if(isTokenExpired()){
+        if(tokenFetcher == null) throw  new IllegalArgumentException("TokenFetcher not available");
+
+        if (isTokenExpired()) {
             fetchTokenFromProvider(tokenFetcher);
         }
         return token.getToken();

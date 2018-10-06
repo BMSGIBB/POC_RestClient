@@ -1,4 +1,4 @@
-package com.test.restclientlibrary.restclient.test.auth0;
+package com.test.restclientlibrary.restclient.test.auth0.entity;
 
 import com.test.restclientlibrary.restclient.token.IProviderToken;
 
