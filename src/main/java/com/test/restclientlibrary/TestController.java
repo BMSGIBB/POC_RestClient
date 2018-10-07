@@ -30,7 +30,7 @@ public class TestController {
     @Autowired
     WebUntisRestService webUntisRestService;
 
-    @RequestMapping(value = "/api/posts/{idList}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/jsontypicode/{idList}", method = RequestMethod.GET)
     public Observable<List<PostDto>> getPostWithIds(@PathVariable("idList") String idList) {
         List<Integer> intList = Arrays
                 .stream(idList.split(","))
@@ -40,12 +40,12 @@ public class TestController {
         return typicodeRestService.getPostWithIds(intList);
     }
 
-    @RequestMapping(value = "/api/user/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/auth0/{userId}", method = RequestMethod.GET)
     public Observable<Auth0User> getUserById(@PathVariable("userId") String userId){
         return auth0RestService.getUserById(userId);
     }
 
-    @RequestMapping(value = "/api/webuntis/connection", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/webuntis/getAllTeachers", method = RequestMethod.GET)
     public Observable<WebUntisResult<List<WebUntisTeacherResult>>> testConection(){
         return webUntisRestService.getTeachers();
     }
