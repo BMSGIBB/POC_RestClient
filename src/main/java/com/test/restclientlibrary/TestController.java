@@ -6,7 +6,7 @@ import com.test.restclientlibrary.restclient.test.auth0.Auth0RestService;
 import com.test.restclientlibrary.restclient.test.auth0.entity.Auth0User;
 import com.test.restclientlibrary.restclient.test.webuntis.WebUntisRestService;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisResult;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisTeacherResult;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.result.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +46,37 @@ public class TestController {
     }
 
     @RequestMapping(value = "/api/webuntis/getAllTeachers", method = RequestMethod.GET)
-    public Observable<WebUntisResult<List<WebUntisTeacherResult>>> testConection(){
+    public Observable<WebUntisResult<List<WebUntisTeacherResult>>> getAllTeachers(){
         return webUntisRestService.getTeachers();
+    }
+
+    @RequestMapping(value = "/api/webuntis/getAllStudents", method = RequestMethod.GET)
+    public Observable<WebUntisResult<List<WebUntisStudentResult>>> getAllStudents(){
+        return webUntisRestService.getStudents();
+    }
+
+    @RequestMapping(value = "/api/webuntis/getAllSchoolClasses", method = RequestMethod.GET)
+    public Observable<WebUntisResult<List<WebUntisSchoolClassResult>>> getAllSchoolClasses(){
+        return webUntisRestService.getSchoolClasses();
+    }
+
+    @RequestMapping(value = "/api/webuntis/getAllSubjects", method = RequestMethod.GET)
+    public Observable<WebUntisResult<List<WebUntisSubjectResult>>> getAllSubjects(){
+        return webUntisRestService.getSubjects();
+    }
+
+    @RequestMapping(value = "/api/webuntis/getAllRooms", method = RequestMethod.GET)
+    public Observable<WebUntisResult<List<WebUntisRoomResult>>> getAllRooms(){
+        return webUntisRestService.getRooms();
+    }
+
+    @RequestMapping(value = "/api/webuntis/getAllDepartments", method = RequestMethod.GET)
+    public Observable<WebUntisResult<List<WebUntisDepartmentResult>>> getAllDepartments(){
+        return webUntisRestService.getDepartments();
+    }
+
+    @RequestMapping(value = "/api/webuntis/getAllHolidays", method = RequestMethod.GET)
+    public Observable<WebUntisResult<List<WebUntisHolidayResult>>> getAllHolidays(){
+        return webUntisRestService.getHolidays();
     }
 }

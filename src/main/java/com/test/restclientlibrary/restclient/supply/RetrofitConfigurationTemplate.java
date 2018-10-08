@@ -65,16 +65,7 @@ public class RetrofitConfigurationTemplate implements IRetrofitConfigurationTemp
             OkHttpClient.Builder baseClient = httpClientFactory
                     .getBaseClient()
                     .newBuilder()
-//                    .
-//                            addInterceptor(chain -> {
-//                                Request original = chain.request();
-//                                Request copy = original.newBuilder().build();
-//                                Buffer buffer = new Buffer();
-//                                copy.body().writeTo(buffer);
-//                                System.out.println(buffer.readUtf8());
-//                                return chain.proceed(original);
-//                            })
-//                    .addInterceptor(logging)
+                    .addInterceptor(logging)
                     .cookieJar(cookieJar);
             return
                     getDefaultRetroFitBuilderWithConverter(baseUrl, baseClient, converterFactory.getFactory(GsonConverterFactory.class))

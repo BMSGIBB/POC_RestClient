@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class WebUntisFactory {
-    public <T> WebUntisRequest<T> generateRequest(String method, T requestType) {
+    public <T> WebUntisRequest<T> generateRequest(String method) {
         WebUntisRequest<T> request = new WebUntisRequest<>();
         request.jsonrpc = "2.0";
         request.id = "ID";

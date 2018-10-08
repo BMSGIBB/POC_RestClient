@@ -1,5 +1,7 @@
 package com.test.restclientlibrary.restclient.factory;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -11,7 +13,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Service
 public class ConverterFactory implements IConverterFactory{
 
-    public ConverterFactory() {
+    private IConverterFactoryConfiguration converterFactoryConfiguration;
+
+    public ConverterFactory(IConverterFactoryConfiguration converterFactoryConfiguration) {
+        this.converterFactoryConfiguration = converterFactoryConfiguration;
     }
 
     public Converter.Factory getFactory(Class<? extends Converter.Factory> factoryClass) {
@@ -24,6 +29,6 @@ public class ConverterFactory implements IConverterFactory{
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     private Converter.Factory getGsonConverter() {
-        return (Converter.Factory)GsonConverterFactory.create();
+        return GsonConverterFactory.create(converterFactoryConfiguration.getGsonConvertConfiguration());
     }
 }

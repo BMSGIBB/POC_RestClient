@@ -1,7 +1,5 @@
 package com.test.restclientlibrary.restclient.test.webuntis;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.test.restclientlibrary.restclient.client.RestService;
 import com.test.restclientlibrary.restclient.generator.IRetrofitConfiguration;
 import com.test.restclientlibrary.restclient.generator.IRetrofitGenerator;
@@ -11,7 +9,7 @@ import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisFactor
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisResult;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisAuthenticationParams;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisTeacherResult;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.result.*;
 import com.test.restclientlibrary.restclient.test.webuntis.request.WebUntisAuthenticationRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.request.WebUntisRequestService;
 import okhttp3.CookieJar;
@@ -20,7 +18,6 @@ import org.springframework.stereotype.Service;
 import retrofit2.Retrofit;
 import rx.Observable;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 @Service
@@ -60,7 +57,59 @@ public class WebUntisRestService extends RestService {
         return configurationTemplate.withCookieAuhentication(webUntisProperties.getBaseUrl(), cookieJar);
     }
 
+    /**
+     * Implementation for WebUntis endpoint => 3) Request teachers
+     * @return List of all teachers from the school
+     */
     public Observable<WebUntisResult<List<WebUntisTeacherResult>>> getTeachers() {
-        return this.webUntisRequestService.getTeachers(webUntisFactory.generateRequest(WebUntisMethod.GET_TEACHERS.getName(), Object.class));
+        return this.webUntisRequestService.getTeachers(webUntisFactory.generateRequest(WebUntisMethod.GET_TEACHERS.getName()));
+    }
+
+    /**
+     * Implementation for WebUntis endpoint => 4) Request students
+     * @return List of all students from the school
+     */
+    public Observable<WebUntisResult<List<WebUntisStudentResult>>> getStudents(){
+        return this.webUntisRequestService.getStudents(webUntisFactory.generateRequest(WebUntisMethod.GET_STUDENTS.getName()));
+    }
+
+    /**
+     * Implementation for WebUntis ednpoint => 5) Request base class
+     * @return List of all school classes from the school
+     */
+    public Observable<WebUntisResult<List<WebUntisSchoolClassResult>>> getSchoolClasses(){
+        return this.webUntisRequestService.getSchoolClasses(webUntisFactory.generateRequest(WebUntisMethod.GET_SCHOOL_CLASSES.getName()));
+    }
+
+    /**
+     * Implementation for WebUntis endpoint => 6) Request subjects
+     * @return List of all subjects from the school
+     */
+    public Observable<WebUntisResult<List<WebUntisSubjectResult>>> getSubjects(){
+        return this.webUntisRequestService.getSubjects(webUntisFactory.generateRequest(WebUntisMethod.GET_SUBJECTS.getName()));
+    }
+
+    /**
+     * Implementation for WebUntis endpoint => 7) Request rooms
+     * @return List of all rooms from the school
+     */
+    public Observable<WebUntisResult<List<WebUntisRoomResult>>> getRooms(){
+        return this.webUntisRequestService.getRooms(webUntisFactory.generateRequest(WebUntisMethod.GET_ROOMS.getName()));
+    }
+
+    /**
+     * Implementation for WebUntis endpoint => 8) Request departments
+     * @return List of all departments from the school
+     */
+    public Observable<WebUntisResult<List<WebUntisDepartmentResult>>> getDepartments(){
+        return this.webUntisRequestService.getDepartments(webUntisFactory.generateRequest(WebUntisMethod.GET_DEPARTMENTS.getName()));
+    }
+
+    /**
+     * Implementation for WebUntis endpoint => 9) Request holidays
+     * @return
+     */
+    public Observable<WebUntisResult<List<WebUntisHolidayResult>>> getHolidays(){
+        return this.webUntisRequestService.getHolidays(webUntisFactory.generateRequest(WebUntisMethod.GET_HOLIDAYS.getName()));
     }
 }
