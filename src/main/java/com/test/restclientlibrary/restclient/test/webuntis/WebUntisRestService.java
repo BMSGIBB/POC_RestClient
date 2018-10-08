@@ -107,9 +107,17 @@ public class WebUntisRestService extends RestService {
 
     /**
      * Implementation for WebUntis endpoint => 9) Request holidays
-     * @return
+     * @return List for all holidays from the school
      */
     public Observable<WebUntisResult<List<WebUntisHolidayResult>>> getHolidays(){
         return this.webUntisRequestService.getHolidays(webUntisFactory.generateRequest(WebUntisMethod.GET_HOLIDAYS.getName()));
+    }
+
+    /**
+     * Implementation for Webuntis
+     * @return
+     */
+    public Observable<WebUntisResult<List<WebUntisTimegridResult>>> getTimeGrid(){
+        return this.webUntisRequestService.getTimegrid(webUntisFactory.generateRequest(WebUntisMethod.GET_TIMEGRID_UNITS.getName()));
     }
 }

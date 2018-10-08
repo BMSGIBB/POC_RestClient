@@ -31,4 +31,7 @@ public interface WebUntisRequestService {
 
     @POST("/WebUntis/jsonrpc.do?school=gibb")
     Observable<WebUntisResult<List<WebUntisHolidayResult>>> getHolidays(@Body WebUntisRequest request);
+
+    @POST("/WebUntis/jsonrpc.do?school=gibb")
+    Observable<WebUntisResult<List<WebUntisTimegridResult>>> getTimegrid(@Body WebUntisRequest request);
 }
