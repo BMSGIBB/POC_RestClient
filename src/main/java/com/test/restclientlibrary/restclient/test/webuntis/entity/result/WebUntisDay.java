@@ -1,5 +1,7 @@
 package com.test.restclientlibrary.restclient.test.webuntis.entity.result;
 
+import java.util.Arrays;
+
 public enum WebUntisDay {
 
     MONDAY(2),
@@ -10,13 +12,20 @@ public enum WebUntisDay {
     SATURDAY(7),
     SUNDAY(1);
 
-    private int name;
+    private int id;
 
-    WebUntisDay(int name){
-        this.name = name;
+    WebUntisDay(int id){
+        this.id = id;
     }
 
-    public int getName(){
-        return this.name;
+    public int getId(){
+        return this.id;
+    }
+
+    public static WebUntisDay getById(int id){
+        return Arrays.stream(WebUntisDay.values())
+                .filter(day -> day.id == id)
+                .findFirst()
+                .orElse(WebUntisDay.MONDAY);
     }
 }

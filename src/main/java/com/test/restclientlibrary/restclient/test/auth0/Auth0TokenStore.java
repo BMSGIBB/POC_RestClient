@@ -24,8 +24,8 @@ public class Auth0TokenStore extends TokenStore {
 
     @Override
     public boolean isTokenExpired() {
-        LocalDateTime currentTime = LocalDateTime.now().minusMinutes(10);
-        if(pointOfExpiration == null || !pointOfExpiration.isAfter(currentTime)){
+        LocalDateTime currentTime = LocalDateTime.now().plusMinutes(2);
+        if(pointOfExpiration == null || currentTime.isAfter(pointOfExpiration)){
             return true;
         }
         return false;

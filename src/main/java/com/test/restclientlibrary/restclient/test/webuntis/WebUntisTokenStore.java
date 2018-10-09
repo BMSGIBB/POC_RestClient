@@ -15,7 +15,7 @@ public class WebUntisTokenStore extends TokenStore {
     private WebUntisAuthenticationRequest retrofitService;
     private WebUntisRequest<WebUntisAuthenticationParams> tokenRequest;
     private LocalDateTime pointOfExpiration;
-    private int expiresIn = 86400;
+    private int expiresIn = 720;
 
     public WebUntisTokenStore(WebUntisAuthenticationRequest webUntisAuthenticationRequest, WebUntisRequest<WebUntisAuthenticationParams> tokenRequest){
         this.retrofitService = webUntisAuthenticationRequest;
@@ -25,8 +25,8 @@ public class WebUntisTokenStore extends TokenStore {
 
     @Override
     public boolean isTokenExpired() {
-        LocalDateTime currentTime = LocalDateTime.now().minusMinutes(10);
-        if(pointOfExpiration == null || !pointOfExpiration.isAfter(currentTime)){
+        LocalDateTime currentTime = LocalDateTime.now().plusMinutes(2);
+        if(pointOfExpiration == null || currentTime.isAfter(pointOfExpiration)){
             return true;
         }
         return false;

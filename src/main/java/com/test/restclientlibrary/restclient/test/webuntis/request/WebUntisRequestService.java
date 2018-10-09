@@ -11,7 +11,7 @@ import rx.Observable;
 import java.util.List;
 
 public interface WebUntisRequestService {
-    @POST("/WebUntis/jsonrpc.do?school=gibb")
+    @POST("/WebUntis/jsonrpc.do?school=gib")
     Observable<WebUntisResult<List<WebUntisTeacherResult>>> getTeachers(@Body WebUntisRequest request);
 
     @POST("/WebUntis/jsonrpc.do?school=gibb")

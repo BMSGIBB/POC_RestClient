@@ -3,8 +3,8 @@ package com.test.restclientlibrary.restclient.test.webuntis.entity.result;
 import java.util.List;
 
 public class WebUntisTimegridResult {
-    WebUntisDay day;
-    List<WebUntisTimeUnit> result;
+    public WebUntisDay day;
+    public List<WebUntisTimeUnit> timeUnits;
 
     public WebUntisDay getDay() {
         return day;
@@ -14,11 +14,11 @@ public class WebUntisTimegridResult {
         this.day = day;
     }
 
-    public List<WebUntisTimeUnit> getResult() {
-        return result;
+    public List<WebUntisTimeUnit> getTimeUnits() {
+        return timeUnits;
     }
 
-    public void setResult(List<WebUntisTimeUnit> result) {
-        this.result = result;
+    public void setTimeUnits(List<WebUntisTimeUnit> timeUnits) {
+        this.timeUnits = timeUnits;
     }
 }

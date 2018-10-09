@@ -18,6 +18,7 @@ public class WebUntisHolidayResultDeserializer implements JsonDeserializer<WebUn
         WebUntisHolidayResult holidayResult = new WebUntisHolidayResult();
         holidayResult.setId(jsonObject.get("id").getAsInt());
         holidayResult.setLongName(jsonObject.get("longName").getAsString());
+        holidayResult.setName(jsonObject.get("name").getAsString());
         try {
             holidayResult.setStartDate(originalFormat.parse(jsonObject.get("startDate").getAsString()));
             holidayResult.setEndDate(originalFormat.parse(jsonObject.get("endDate").getAsString()));

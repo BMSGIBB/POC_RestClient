@@ -114,7 +114,7 @@ public class WebUntisRestService extends RestService {
     }
 
     /**
-     * Implementation for Webuntis
+     * Implementation for Webuntis endpoint => 10) Request timegrid
      * @return
      */
     public Observable<WebUntisResult<List<WebUntisTimegridResult>>> getTimeGrid(){

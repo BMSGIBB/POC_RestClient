@@ -79,4 +79,9 @@ public class TestController {
     public Observable<WebUntisResult<List<WebUntisHolidayResult>>> getAllHolidays(){
         return webUntisRestService.getHolidays();
     }
+
+    @RequestMapping(value = "/api/webuntis/getTimeGrid", method = RequestMethod.GET)
+    public Observable<WebUntisResult<List<WebUntisTimegridResult>>> getTimegrid(){
+        return webUntisRestService.getTimeGrid();
+    }
 }
