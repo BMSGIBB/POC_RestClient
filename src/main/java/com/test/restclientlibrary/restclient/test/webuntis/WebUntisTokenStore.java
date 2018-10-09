@@ -1,9 +1,9 @@
 package com.test.restclientlibrary.restclient.test.webuntis;
 
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisAuthenticationResult;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisAuthenticationParams;
-import com.test.restclientlibrary.restclient.test.webuntis.request.WebUntisAuthenticationRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.service.WebUntisAuthenticationRequest;
 import com.test.restclientlibrary.restclient.token.IProviderToken;
 import com.test.restclientlibrary.restclient.token.ITokenFetcher;
 import com.test.restclientlibrary.restclient.token.TokenStore;

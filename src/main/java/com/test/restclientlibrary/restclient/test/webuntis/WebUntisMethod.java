@@ -8,7 +8,10 @@ public enum WebUntisMethod {
     GET_ROOMS("getRooms"),
     GET_DEPARTMENTS("getDepartments"),
     GET_HOLIDAYS("getHolidays"),
-    GET_TIMEGRID_UNITS("getTimegridUnits");
+    GET_TIMEGRID_UNITS("getTimegridUnits"),
+    GET_CURRENT_SCHOOL_YEAR("getCurrentSchoolyear"),
+    GET_SCHOOL_YEARS("getSchoolyears"),
+    GET_TIMETABLE("getTimetable");
 
     private String name;
 

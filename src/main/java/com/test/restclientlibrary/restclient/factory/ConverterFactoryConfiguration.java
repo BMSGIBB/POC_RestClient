@@ -2,14 +2,17 @@ package com.test.restclientlibrary.restclient.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.deserializer.WebUntisDayDeserializer;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.deserializer.WebUntisHolidayResultDeserializer;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisTimetableType;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.converter.*;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisDay;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisHolidayResult;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisTimetableCode;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisTimetableLessonType;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+
+import java.util.Date;
 
 @Configuration
 public class ConverterFactoryConfiguration implements IConverterFactoryConfiguration {
@@ -17,8 +20,12 @@ public class ConverterFactoryConfiguration implements IConverterFactoryConfigura
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     public Gson getGsonConvertConfiguration(){
         return new GsonBuilder()
-                .registerTypeAdapter(WebUntisHolidayResult.class, new WebUntisHolidayResultDeserializer())
+                .registerTypeAdapter(Date.class, new DateDeserializerGson())
+                .registerTypeAdapter(Date.class, new DateSerializerGson())
                 .registerTypeAdapter(WebUntisDay.class, new WebUntisDayDeserializer())
+                .registerTypeAdapter(WebUntisTimetableLessonType.class, new WebUntisTimetableLessonTypeDesirializer())
+                .registerTypeAdapter(WebUntisTimetableCode.class, new WebUntisTimetableCodeDesirializer())
+                .registerTypeAdapter(WebUntisTimetableType.class, new WebUntisTimetableTypeSerializer())
                 .create();
     }
 }
