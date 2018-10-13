@@ -1,10 +1,10 @@
-package com.test.restclientlibrary.restclient.test.webuntis.entity.request;
+package com.test.restclientlibrary.restclient.test.webuntis.entity.param;
 
-import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisTimetableType;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisTimetableType;
 
 import java.util.Date;
 
-public class WebUntisTimetableRequest {
+public class WebUntisTimetableParams {
     int id;
     WebUntisTimetableType type;
     Date startDate;

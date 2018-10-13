@@ -6,10 +6,11 @@ import com.test.restclientlibrary.restclient.test.auth0.Auth0RestService;
 import com.test.restclientlibrary.restclient.test.auth0.entity.Auth0User;
 import com.test.restclientlibrary.restclient.test.webuntis.WebUntisRestService;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisResult;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisTimetableRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisCustomTimetableParams;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisTimetableParams;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.result.*;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisCustomTimetableOption;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import rx.Observable;
 
@@ -95,17 +96,12 @@ public class TestController {
     }
 
     @RequestMapping(value = "/api/webuntis/getTimetable", method = RequestMethod.POST)
-    public Observable<WebUntisResult<List<WebUntisTimetableResult>>> getTimeTable(@RequestBody WebUntisTimetableRequest request) {
+    public Observable<WebUntisResult<List<WebUntisTimetableResult>>> getTimeTable(@RequestBody WebUntisTimetableParams request) {
         return webUntisRestService.getTimetable(request);
     }
 
-    @RequestMapping(value = "/api/test", method = RequestMethod.POST)
-    public TestEntity test(@RequestBody TestEntity testEntity) {
-        return testEntity;
-    }
-
-    public class TestEntity {
-        public String firstName;
-        public String lastName;
+    @RequestMapping(value = "/api/webuntis/getCustomTimetable", method = RequestMethod.POST)
+    public Observable<WebUntisResult<List<WebUntisCustomTimetableResult>>> getCustomTimetble(@RequestBody WebUntisCustomTimetableOption params){
+        return webUntisRestService.getCustomTimetable(params);
     }
 }

@@ -6,11 +6,13 @@ import com.test.restclientlibrary.restclient.generator.IRetrofitGenerator;
 import com.test.restclientlibrary.restclient.supply.IRetrofitConfigurationTemplate;
 import com.test.restclientlibrary.restclient.supply.IRetrofitInterceptorTemplate;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisFactory;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisResult;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisAuthenticationParams;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisTimetableRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisCustomTimetableParams;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisTimetableParams;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.result.*;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisCustomTimetableOption;
 import com.test.restclientlibrary.restclient.test.webuntis.service.WebUntisAuthenticationRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.service.WebUntisRequestService;
 import okhttp3.CookieJar;
@@ -140,10 +142,23 @@ public class WebUntisRestService extends RestService {
 
     /**
      * Implementation for WebUntis ednpoint => 14 Request timetable for an element (simple)
-     * @param request Timetable filter which should be applied to the request (e. g filter by teacher id)
+     * @param params Timetable filter which should be applied to the request (e. g filter by teacher id)
      * @return Timetable with applied filter
      */
-    public Observable<WebUntisResult<List<WebUntisTimetableResult>>> getTimetable(WebUntisTimetableRequest request){
-        return this.webUntisRequestService.getTimetable(webUntisFactory.generateRequest(WebUntisMethod.GET_TIMETABLE.getName(), request));
+    public Observable<WebUntisResult<List<WebUntisTimetableResult>>> getTimetable(WebUntisTimetableParams params){
+        return this.webUntisRequestService.getTimetable(webUntisFactory.generateRequest(WebUntisMethod.GET_TIMETABLE.getName(), params));
+    }
+
+    /**
+     * Implementation for WebUntis ednpoint => 15 Request timetable for an element (customizable)
+     * @param option
+     * @return
+     */
+    public Observable<WebUntisResult<List<WebUntisCustomTimetableResult>>> getCustomTimetable(WebUntisCustomTimetableOption option){
+
+        WebUntisCustomTimetableParams params = new WebUntisCustomTimetableParams();
+        params.setOptions(option);
+
+        return this.webUntisRequestService.getCustomTimetable(webUntisFactory.generateRequest(WebUntisMethod.GET_TIMETABLE.getName(), params));
     }
 }

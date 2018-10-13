@@ -1,4 +1,4 @@
-package com.test.restclientlibrary.restclient.test.webuntis.entity.request;
+package com.test.restclientlibrary.restclient.test.webuntis.entity;
 
 public class WebUntisRequest<Param> {
     public String id = "ID";

@@ -1,7 +1,7 @@
 package com.test.restclientlibrary.restclient.test.webuntis;
 
-import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisAuthenticationResult;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisAuthenticationResult;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisAuthenticationParams;
 import com.test.restclientlibrary.restclient.test.webuntis.service.WebUntisAuthenticationRequest;
 import com.test.restclientlibrary.restclient.token.IProviderToken;
@@ -15,7 +15,7 @@ public class WebUntisTokenStore extends TokenStore {
     private WebUntisAuthenticationRequest retrofitService;
     private WebUntisRequest<WebUntisAuthenticationParams> tokenRequest;
     private LocalDateTime pointOfExpiration;
-    private int expiresIn = 720;
+    private int expiresIn = 600;
 
     public WebUntisTokenStore(WebUntisAuthenticationRequest webUntisAuthenticationRequest, WebUntisRequest<WebUntisAuthenticationParams> tokenRequest){
         this.retrofitService = webUntisAuthenticationRequest;
@@ -35,6 +35,7 @@ public class WebUntisTokenStore extends TokenStore {
     @Override
     public ITokenFetcher<IProviderToken> createTokenFetcher() {
         return () -> {
+            //todo exception handling
             WebUntisAuthenticationResult authToken = retrofitService
                     .authenticate(tokenRequest)
                     .toBlocking()

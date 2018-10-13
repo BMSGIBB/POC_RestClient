@@ -1,4 +1,4 @@
-package com.test.restclientlibrary.restclient.test.webuntis.entity;
+package com.test.restclientlibrary.restclient.test.webuntis.entity.supply;
 
 import java.util.Arrays;
 

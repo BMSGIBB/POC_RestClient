@@ -1,4 +1,4 @@
-package com.test.restclientlibrary.restclient.test.webuntis.entity;
+package com.test.restclientlibrary.restclient.test.webuntis.entity.result;
 
 import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisAuthenticateResult;
 import com.test.restclientlibrary.restclient.token.IProviderToken;

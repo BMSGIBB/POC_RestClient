@@ -1,10 +1,10 @@
 package com.test.restclientlibrary.restclient.test.webuntis.service;
 
 
-import com.test.restclientlibrary.restclient.test.webuntis.WebUntisRestService;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisResult;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisTimetableRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisCustomTimetableParams;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisTimetableParams;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.result.*;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -44,5 +44,8 @@ public interface WebUntisRequestService {
     Observable<WebUntisResult<List<WebUntisCurrentSchoolYearResult>>> getSchoolYears(@Body WebUntisRequest request);
 
     @POST("/WebUntis/jsonrpc.do?school=gibb")
-    Observable<WebUntisResult<List<WebUntisTimetableResult>>> getTimetable(@Body WebUntisRequest<WebUntisTimetableRequest> request);
+    Observable<WebUntisResult<List<WebUntisTimetableResult>>> getTimetable(@Body WebUntisRequest<WebUntisTimetableParams> request);
+
+    @POST("/WebUntis/jsonrpc.do?school=gibb")
+    Observable<WebUntisResult<List<WebUntisCustomTimetableResult>>> getCustomTimetable(@Body WebUntisRequest<WebUntisCustomTimetableParams> request);
 }

@@ -2,7 +2,7 @@ package com.test.restclientlibrary.restclient.test.webuntis.entity.converter;
 
 
 import com.google.gson.*;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisDay;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisDay;
 
 import java.lang.reflect.Type;
 

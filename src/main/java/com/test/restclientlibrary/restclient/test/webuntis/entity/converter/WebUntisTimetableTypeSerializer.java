@@ -3,9 +3,8 @@ package com.test.restclientlibrary.restclient.test.webuntis.entity.converter;
 
 
 import com.google.gson.*;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisTimetableType;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisTimetableType;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 
 public class WebUntisTimetableTypeSerializer implements JsonSerializer<WebUntisTimetableType> {

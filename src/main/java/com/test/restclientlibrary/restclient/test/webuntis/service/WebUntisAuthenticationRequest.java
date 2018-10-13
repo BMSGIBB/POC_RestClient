@@ -1,7 +1,7 @@
 package com.test.restclientlibrary.restclient.test.webuntis.service;
 
-import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisAuthenticationResult;
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisRequest;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.result.WebUntisAuthenticationResult;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.WebUntisRequest;
 import com.test.restclientlibrary.restclient.test.webuntis.entity.param.WebUntisAuthenticationParams;
 import retrofit2.http.Body;
 import retrofit2.http.POST;

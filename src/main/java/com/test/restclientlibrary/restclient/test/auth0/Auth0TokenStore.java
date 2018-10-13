@@ -34,6 +34,7 @@ public class Auth0TokenStore extends TokenStore {
     @Override
     public ITokenFetcher<IProviderToken> createTokenFetcher() {
         return () -> {
+            //todo exception handling
             Auth0Token authToken = retrofitService
                     .getAuthenticationToken(tokenRequest)
                     .toBlocking()

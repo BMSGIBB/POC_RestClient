@@ -1,4 +1,4 @@
-package com.test.restclientlibrary.restclient.test.webuntis.entity.result;
+package com.test.restclientlibrary.restclient.test.webuntis.entity.supply;
 
 public class WebUntisTimeUnit {
     int startTime;

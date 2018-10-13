@@ -1,6 +1,5 @@
 package com.test.restclientlibrary.restclient.test.webuntis.entity;
 
-import com.test.restclientlibrary.restclient.test.webuntis.entity.request.WebUntisRequest;
 import org.springframework.stereotype.Component;
 
 @Component

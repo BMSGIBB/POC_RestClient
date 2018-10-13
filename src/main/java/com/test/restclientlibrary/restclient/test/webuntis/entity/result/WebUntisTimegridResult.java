@@ -1,5 +1,8 @@
 package com.test.restclientlibrary.restclient.test.webuntis.entity.result;
 
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisDay;
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisTimeUnit;
+
 import java.util.List;
 
 public class WebUntisTimegridResult {

@@ -1,5 +1,7 @@
 package com.test.restclientlibrary.restclient.test.webuntis.entity.result;
 
+import com.test.restclientlibrary.restclient.test.webuntis.entity.supply.WebUntisTimetableId;
+
 import java.util.Date;
 import java.util.List;
 
@@ -8,10 +10,10 @@ public class WebUntisTimetableResult {
     Date date;
     int startTime;
     int endTime;
-    List<WebUntisTimetableIdResult> kl;
-    List<WebUntisTimetableIdResult> te;
-    List<WebUntisTimetableIdResult> su;
-    List<WebUntisTimetableIdResult> ro;
+    List<WebUntisTimetableId> kl;
+    List<WebUntisTimetableId> te;
+    List<WebUntisTimetableId> su;
+    List<WebUntisTimetableId> ro;
     String activityType;
 
     public int getId() {
@@ -47,35 +49,35 @@ public class WebUntisTimetableResult {
     }
 
 
-    public List<WebUntisTimetableIdResult> getKl() {
+    public List<WebUntisTimetableId> getKl() {
         return kl;
     }
 
-    public void setKl(List<WebUntisTimetableIdResult> kl) {
+    public void setKl(List<WebUntisTimetableId> kl) {
         this.kl = kl;
     }
 
-    public List<WebUntisTimetableIdResult> getTe() {
+    public List<WebUntisTimetableId> getTe() {
         return te;
     }
 
-    public void setTe(List<WebUntisTimetableIdResult> te) {
+    public void setTe(List<WebUntisTimetableId> te) {
         this.te = te;
     }
 
-    public List<WebUntisTimetableIdResult> getSu() {
+    public List<WebUntisTimetableId> getSu() {
         return su;
     }
 
-    public void setSu(List<WebUntisTimetableIdResult> su) {
+    public void setSu(List<WebUntisTimetableId> su) {
         this.su = su;
     }
 
-    public List<WebUntisTimetableIdResult> getRo() {
+    public List<WebUntisTimetableId> getRo() {
         return ro;
     }
 
-    public void setRo(List<WebUntisTimetableIdResult> ro) {
+    public void setRo(List<WebUntisTimetableId> ro) {
         this.ro = ro;
     }
 
